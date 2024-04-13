@@ -29,4 +29,4 @@ def test_classifier():
     assert len(embeddings) == len(example_texts)
 
     # Check the embeddings dimension
-    assert embeddings[0].embedding_dim == settings.EMBEDDING_DIM
+    assert len(embeddings[0]) == embedder.model_config.hidden_size
