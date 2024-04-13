@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  fastapi:
+    build: 
+         context: ../
+         dockerfile: ./docker/Dockerfile.{{cookiecutter.device}}
+    ports:
+      - "8080:8080"
+    volumes:
+      - ../src:/app/src
+    environment:
+      - PYTHONUNBUFFERED=1
