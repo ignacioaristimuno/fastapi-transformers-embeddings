@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List
 
 from src.models.embeddings import TextEmbedding
@@ -9,7 +9,7 @@ class TextsPayload(BaseModel):
 
     texts: List[str]
     instruct: bool = False
-    preprocessed_texts: List[str] = Field(default_factory=None)
+    preprocessed_texts: List[str] = None
 
 
 class ResponseTextsPayload(BaseModel):

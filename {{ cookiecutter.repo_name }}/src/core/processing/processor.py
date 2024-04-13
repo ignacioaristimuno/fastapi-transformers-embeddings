@@ -1,7 +1,7 @@
 from typing import List
 
 from src.models.payload import TextsPayload, ResponseTextsPayload
-from models.embeddings import TextEmbedding
+from src.models.embeddings import TextEmbedding
 from src.settings import custom_logger
 
 
@@ -15,13 +15,14 @@ class Processor:
         self.model_id = model_id
         self.embedding_dim = embedding_dim
 
-    def preprocess_texts(self, payload: TextsPayload) -> None:
+    def preprocess_texts(self, payload: TextsPayload) -> TextsPayload:
         """Method for preprocessing the sentences before encoding"""
 
         if not payload.instruct:
             payload.preprocessed_texts = payload.texts
         else:
             payload.preprocessed_texts = self._add_instruction_prefix(payload.texts)
+        return payload
 
     @staticmethod
     def _add_instruction_prefix(texts: List[str]) -> List[str]:

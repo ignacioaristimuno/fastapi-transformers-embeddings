@@ -37,7 +37,9 @@ class Embedder:
         """Method for avoiding the lazy loading of the model and tokenizer"""
 
         dummy_texts = ["This is a dummy text", "This is another dummy text"]
-        self.encode_batch(TextsPayload(texts=dummy_texts))
+        self.encode_batch(
+            TextsPayload(texts=dummy_texts, preprocessed_texts=dummy_texts)
+        )
         self.logger.info("Finished complete loading of the model and tokenizer!")
 
     def _create_batches(self, texts: List[str]):

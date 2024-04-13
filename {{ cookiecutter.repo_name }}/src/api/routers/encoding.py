@@ -18,5 +18,7 @@ def encode_texts(
 
     preprocessed_payload: TextsPayload = request.state.processor.preprocess_texts(texts)
     embeddings: list = request.state.embedder.encode_batch(preprocessed_payload)
-    response: ResponseTextsPayload = request.state.classifier.predict(texts, embeddings)
+    response: ResponseTextsPayload = request.state.processor.postprocess_texts(
+        texts, embeddings
+    )
     return response
