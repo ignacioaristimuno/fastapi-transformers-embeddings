@@ -1,0 +1,3 @@
+ClassificationModel:
+  MODEL_ID: {{cookiecutter.model_id}}
+  BATCH_SIZE: {{cookiecutter.batch_size}}
