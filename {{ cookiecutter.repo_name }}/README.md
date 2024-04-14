@@ -84,7 +84,7 @@ This project template allows you to quickly set up an embeddings API using trans
 1. **Start the API server**:
 
    ```bash
-   python app.py
+   python3 src/api/app.py
    ```
 2. **Send requests**:
 
