@@ -17,7 +17,6 @@ This project template allows you to quickly set up an embeddings API using trans
 - [Configuration](#configuration)
 - [License](#license)
 
-
 ## Features
 
 - Load a pre-trained transformers embedding model.
@@ -40,83 +39,74 @@ This project template allows you to quickly set up an embeddings API using trans
 
 1. First, install Cookiecutter if you haven't already:
 
-    ```bash
-    pip install cookiecutter
-    ```
-
+   ```bash
+   pip install cookiecutter
+   ```
 2. Now, generate your project from this template using Cookiecutter:
 
-    ```bash
-    cookiecutter <path_to_template>
-    ```
+   ```bash
+   cookiecutter <path_to_template>
+   ```
 
-    Follow the prompts to fill in the required variables for your project.
-
+   Follow the prompts to fill in the required variables for your project.
 3. After generating the project, navigate into the project directory:
 
-    ```bash
-    cd <your_project_name>
-    ```
-
+   ```bash
+   cd <your_project_name>
+   ```
 4. Create and activate a virtual environment (recommended):
 
-    ```bash
-    virtualenv venv
-    source venv/bin/activate
-    ```
-
+   ```bash
+   virtualenv venv
+   source venv/bin/activate
+   ```
 5. Install the required dependencies:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
-
+   ```bash
+   pip install -r requirements.txt
+   ```
 6. **Option 1: Run with Docker Compose**
 
-    ```bash
-    docker-compose up
-    ```
-
+   ```bash
+   docker-compose up
+   ```
 7. **Option 2: Run without Docker Compose**
 
-    Start the API server:
+   Start the API server:
 
-    ```bash
-    python app.py
-    ```
-
+   ```bash
+   python3 src/api/app.py
+   ```
 8. Send requests to the API following the usage instructions below.
 
 ## Usage
 
 1. **Start the API server**:
 
-    ```bash
-    python app.py
-    ```
-
+   ```bash
+   python3 src/api/app.py
+   ```
 2. **Send requests**:
 
-    - Endpoint: `/encoding/texts`
-    - Method: POST
-    - Payload:
-        ```json
-        {
-            "texts": [
-                "This is an example of a sentence",
-                "Another example of a another sentence"
-            ],
-            "instruct": false
-        }
-        ```
-    - Example request using cURL:
-        ```bash
-        curl -X POST -H "Content-Type: application/json" -d '{"texts": ["This is an example of a sentence", "Another example of a another sentence"], "instruct": false}' http://localhost:8080/encoding/texts
-        ```
-
+   - Endpoint: `/encoding/texts`
+   - Method: POST
+   - Payload:
+     ```json
+     {
+         "texts": [
+             "This is an example of a sentence",
+             "Another example of a another sentence"
+         ],
+         "instruct": false
+     }
+     ```
+   - Example request using cURL:
+     ```bash
+     curl -X POST -H "Content-Type: application/json" -d '{"texts": ["This is an example of a sentence", "Another example of a another sentence"], "instruct": false}' http://localhost:8080/encoding/texts
+     ```
 3. **Response**:
 
-    The API will respond with a JSON object containing the embeddings along with the used model's metadata.
+   The API will respond with a JSON object containing the embeddings along with the used model's metadata.
 
 ## Endpoints
 
